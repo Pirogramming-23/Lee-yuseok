@@ -6,6 +6,9 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <title>NAVER</title>
     <style>
+        *{
+            box-sizing: border-box;
+        }
         html, body{
             margin: 0;
             padding: 0;
@@ -22,15 +25,19 @@
             text-align: left;
             position: relative;
         }
-        #header-hamburger{
-            position: absolute;
-            top: 18px;
-            left: -10px;
-            padding: 10px;
+
+        #header-hamburger, #header-naverpay, #header-navershop, #header-notice,#header-navertoc{
+            padding: 8px; 
             display: inline-block;
             background: none;
             border: none;
-            cursor: pointer;   
+            cursor: pointer;  
+        }
+        #header-hamburger{
+            position: absolute;
+            top: 5px;
+            left: -12px;
+            width: 54px; 
         }
         #header-hamburger:hover::before{
             position: absolute;
@@ -51,14 +58,148 @@
             top: 1px;
         }
         #header-hamburger >div{
-            background-image: url(./sp_main_search_df8ba29e.png);
-            width: 30px;
-            height: 16px;
+            background-image: url(./sp_main.04eb92b7.png);
+            width: 32px;
+            height: 32px;
+            position: relative;
+            background-repeat: no-repeat;
+            background-position: -311px -166px;
+            background-size: 463px 442px;
+        }
+        #header-naverpay{
+            position: absolute;
+            top: 5px;
+            left: 41px; 
+        }
+        #header-naverpay:hover::before{
+            position: absolute;
+            content: '';
+            z-index: 0;
+            left: 1px;
+            top: 1px;
+            width: 44px;
+            height: 44px;
+            background-color: beige;
+            
+            border-radius: 50%;
+        
+        }
+        #header-naverpay:hover > div{
+            position: relative;
+            left: 1px;
+            top: 1px;
+        }
+        #header-naverpay >div{
+            background-image: url(./sp_main.04eb92b7.png);
+            width: 32px;
+            height: 32px;
             position: relative;
             z-index: 1;
             background-repeat: no-repeat;
-            background-position: -160px -135px;
-            background-size: 360px 160px;
+            background-position: -248px -260px;
+            background-size: 462px 442px;
+        }
+
+        #header-navershop{
+            position: absolute;
+            top: 5px;
+            right: -10px;  
+        }
+        #header-navershop:hover::before{
+            position: absolute;
+            content: '';
+            z-index: 0;
+            left: 1px;
+            top: 1px;
+            width: 44px;
+            height: 44px;
+            background-color: beige;
+            
+            border-radius: 50%;
+        
+        }
+        #header-navershop:hover > div{
+            position: relative;
+            left: 1px;
+            top: 1px;
+        }
+        #header-navershop >div{
+            background-image: url(./sp_main.04eb92b7.png);
+            width: 32px;
+            height: 32px;
+            position: relative;
+            z-index: 1;
+            background-repeat: no-repeat;
+            background-position: -33px -316px;
+            background-size: 463px 442px;
+        }
+
+        #header-notice{
+            position: absolute;
+            top: 5px;
+            right: 42px;  
+        }
+        #header-notice:hover::before{
+            position: absolute;
+            content: '';
+            z-index: 0;
+            left: 5px;
+            top: 5px;
+            width: 38px;
+            height: 38px;
+            background-color: beige;
+            
+            border-radius: 50%;
+        
+        }
+        #header-notice:hover > div{
+            position: relative;
+            left: 1px;
+            top: 1px;
+        }
+        #header-notice >div{
+            background-image: url(./sp_main.04eb92b7.png);
+            width: 32px;
+            height: 32px;
+            position: relative;
+            z-index: 1;
+            background-repeat: no-repeat;
+            background-position: -311px -232px;
+            background-size: 463px 442px;
+        }
+        
+        #header-navertoc{
+            position: absolute;
+            top: 5px;
+            right: 94px;  
+        }
+        #header-navertoc:hover::before{
+            position: absolute;
+            content: '';
+            z-index: 0;
+            left: 5px;
+            top: 5px;
+            width: 38px;
+            height: 38px;
+            background-color: beige;
+            
+            border-radius: 50%;
+        
+        }
+        #header-navertoc:hover > div{
+            position: relative;
+            left: 1px;
+            top: 1px;
+        }
+        #header-navertoc >div{
+            background-image: url(./sp_main.04eb92b7.png);
+            width: 32px;
+            height: 32px;
+            position: relative;
+            z-index: 1;
+            background-repeat: no-repeat;
+            background-position: -99px -316px;
+            background-size: 463px 442px;
         }
         #main{
             height: 2000px;
@@ -81,6 +222,32 @@
                     <!-- ::before-->
                     <div></div>
                     <span class="blind">확장 영역</span>
+                    <!-- ::after-->
+                </button>
+                <button id="header-naverpay">
+                    <!-- ::before-->
+                    <div></div>
+                    <span class="blind">네이버 페이</span>
+                    <!-- ::after-->
+                </button>
+                <button id="header-notice">
+                    <!-- ::before-->
+                    <div></div>
+                    <span class="blind">알림</span>
+                    <!-- ::after-->
+                </button>
+
+                <button id="header-navertoc">
+                    <!-- ::before-->
+                    <div></div>
+                    <span class="blind">네이버 톡</span>
+                    <!-- ::after-->
+                </button>
+
+                <button id="header-navershop">
+                    <!-- ::before-->
+                    <div></div>
+                    <span class="blind">네이버 장바구니</span>
                     <!-- ::after-->
                 </button>
             </div>
