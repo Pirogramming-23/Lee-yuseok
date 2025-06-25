@@ -22,18 +22,25 @@
             text-align: left;
         }
         #header-hamburger{
-            margin-top: 18px;
-            padding: 10px;
+            margin-top: 10px;
+            padding: 4px 4px;
             display: inline-block;
-            
+            background: none;
+            border: none;
+            cursor: pointer;   
         }
+        #header-hamburger:hover{
+            background-color: beige;
+            border-radius: 50%;
+        }
+
         #header-hamburger >div{
             background-image: url(./sp_main_search_df8ba29e.png);
-            width: 26px;
-            height: 46px;
+            width: 30px;
+            height: 16px;
             background-repeat: no-repeat;
-            background-position: -145px -135px;
-            background-size: 323px 185px;
+            background-position: -160px -135px;
+            background-size: 360px 160px;
         }
         #main{
             height: 2000px;
@@ -44,9 +51,9 @@
     <div id="wrap" >
         <div id="wrap-center">
             <div id="header">
-                <div id="header-hamburger">
+                <button id="header-hamburger">
                     <div></div>
-                </div>
+                </button>
             </div>
             <div id="search"></div>
             <div id="nav"></div>
