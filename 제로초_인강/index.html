@@ -20,20 +20,35 @@
         }
         #header{
             text-align: left;
+            position: relative;
         }
         #header-hamburger{
-            margin-top: 10px;
-            padding: 4px 4px;
+            position: absolute;
+            top: 18px;
+            left: -10px;
+            padding: 10px;
             display: inline-block;
             background: none;
             border: none;
             cursor: pointer;   
         }
-        #header-hamburger:hover{
+        #header-hamburger:hover::before{
+            position: absolute;
+            content: '';
+            left: 1px;
+            top: 1px;
+            width: 44px;
+            height: 44px;
             background-color: beige;
+            
             border-radius: 50%;
+        
         }
-
+        #header-hamburger:hover > div{
+            position: relative;
+            left: 1px;
+            top: 1px;
+        }
         #header-hamburger >div{
             background-image: url(./sp_main_search_df8ba29e.png);
             width: 30px;
