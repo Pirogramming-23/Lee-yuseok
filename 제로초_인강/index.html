@@ -254,7 +254,7 @@
             </div>
             <style>
                 #search > form{
-                    display: inline-block;
+                    display: inline-flex;
                     width: 708px;
                     height: 60px;
                     border: 1px solid #03c75a;
@@ -262,7 +262,9 @@
                     text-align: left;
                 }
                 #search-svg{
-                    display: inline-block;
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
                     width: 68px;
                     margin-right: 12px;
                     height: 100%;
@@ -290,7 +292,10 @@
                     outline: none;
                 }
                 #search-right{
-                    display: inline-block;
+                    flex: 1;
+                    display: flex;
+                    align-items: stretch;
+                    justify-content: flex-end;
                 }
                 #search > form a{
                     width: 68;
@@ -302,6 +307,11 @@
                     width: 24px;
                     height: 24px;
                     fill: #03c75a;
+                }
+                #search-keyboard, #search-recent, #search-button{
+                    background: transparent;
+                    border: none;
+                    cursor: pointer;
                 }
                 #search-keyboard::before{
                     content: "";
@@ -324,9 +334,11 @@
                     height: 6px;
                 }
                 #search-button::before{
+                    content: "";
+                    display: block;
                     background-image: url(https://pm.pstatic.net/resources/asset/sp_main.04eb92b7.png);
                     background-size: 463px 442px;
-                    background-position: -364px -106px;
+                    background-position: -405px -105px;
                     background-repeat: no-repeat;
                     width: 25px;
                     height: 25px;
