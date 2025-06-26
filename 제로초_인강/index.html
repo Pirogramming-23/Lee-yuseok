@@ -1,0 +1,835 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>NAVER</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        html, body{
+            font-size: 10.5px;
+            line-height: 10.5px;
+            margin: 0;
+            padding: 0;
+            letter-spacing: -0,4px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은 고딕", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        }
+        form, ul{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            text-align: center;
+        }
+        #wrap-center{  
+            width: 1280px;
+            display: inline-block;
+            background-color: white;
+        }
+        #header{
+            text-align: left;
+            position: relative;
+            height: 64px;
+        }
+
+        #header-hamburger, #header-naverpay, #header-navershop, #header-notice,#header-navertoc{
+            padding: 8px; 
+            display: inline-block;
+            background: none;
+            border: none;
+            cursor: pointer;  
+        }
+        #header-hamburger{
+            position: absolute;
+            top: 5px;
+            left: -12px;
+            width: 54px; 
+        }
+        #header-hamburger:hover::before{
+            position: absolute;
+            content: '';
+            z-index: 0;
+            left: 1px;
+            top: 1px;
+            width: 44px;
+            height: 44px;
+            background-color: beige;
+            
+            border-radius: 50%;
+        
+        }
+        #header-hamburger:hover > div{
+            position: relative;
+            left: 1px;
+            top: 1px;
+        }
+        #header-hamburger >div{
+            background-image: url(./sp_main.04eb92b7.png);
+            width: 32px;
+            height: 32px;
+            position: relative;
+            background-repeat: no-repeat;
+            background-position: -311px -166px;
+            background-size: 463px 442px;
+        }
+        #header-naverpay{
+            position: absolute;
+            top: 5px;
+            left: 41px; 
+        }
+        #header-naverpay:hover::before{
+            position: absolute;
+            content: '';
+            z-index: 0;
+            left: 1px;
+            top: 1px;
+            width: 44px;
+            height: 44px;
+            background-color: beige;
+            
+            border-radius: 50%;
+        
+        }
+        #header-naverpay:hover > div{
+            position: relative;
+            left: 1px;
+            top: 1px;
+        }
+        #header-naverpay >div{
+            background-image: url(./sp_main.04eb92b7.png);
+            width: 32px;
+            height: 32px;
+            position: relative;
+            z-index: 1;
+            background-repeat: no-repeat;
+            background-position: -248px -260px;
+            background-size: 462px 442px;
+        }
+
+        #header-navershop{
+            position: absolute;
+            top: 5px;
+            right: -10px;  
+        }
+        #header-navershop:hover::before{
+            position: absolute;
+            content: '';
+            z-index: 0;
+            left: 1px;
+            top: 1px;
+            width: 44px;
+            height: 44px;
+            background-color: beige;
+            
+            border-radius: 50%;
+        
+        }
+        #header-navershop:hover > div{
+            position: relative;
+            left: 1px;
+            top: 1px;
+        }
+        #header-navershop >div{
+            background-image: url(./sp_main.04eb92b7.png);
+            width: 32px;
+            height: 32px;
+            position: relative;
+            z-index: 1;
+            background-repeat: no-repeat;
+            background-position: -33px -316px;
+            background-size: 463px 442px;
+        }
+
+        #header-notice{
+            position: absolute;
+            top: 5px;
+            right: 42px;  
+        }
+        #header-notice:hover::before{
+            position: absolute;
+            content: '';
+            z-index: 0;
+            left: 5px;
+            top: 5px;
+            width: 38px;
+            height: 38px;
+            background-color: beige;
+            
+            border-radius: 50%;
+        
+        }
+        #header-notice:hover > div{
+            position: relative;
+            left: 1px;
+            top: 1px;
+        }
+        #header-notice >div{
+            background-image: url(./sp_main.04eb92b7.png);
+            width: 32px;
+            height: 32px;
+            position: relative;
+            z-index: 1;
+            background-repeat: no-repeat;
+            background-position: -311px -232px;
+            background-size: 463px 442px;
+        }
+        
+        #header-navertoc{
+            position: absolute;
+            top: 5px;
+            right: 94px;  
+        }
+        #header-navertoc:hover::before{
+            position: absolute;
+            content: '';
+            z-index: 0;
+            left: 5px;
+            top: 5px;
+            width: 38px;
+            height: 38px;
+            background-color: beige;
+            
+            border-radius: 50%;
+        
+        }
+        #header-navertoc:hover > div{
+            position: relative;
+            left: 1px;
+            top: 1px;
+        }
+        #header-navertoc >div{
+            background-image: url(./sp_main.04eb92b7.png);
+            width: 32px;
+            height: 32px;
+            position: relative;
+            z-index: 1;
+            background-repeat: no-repeat;
+            background-position: -99px -316px;
+            background-size: 463px 442px;
+        }
+        #main{
+            height: 2000px;
+        }
+        .blind{
+            position: absolute;
+            clip: rext(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap" >
+        <div id="wrap-center">
+            <div id="header">
+                <button id="header-hamburger">
+                    <!-- ::before-->
+                    <div></div>
+                    <span class="blind">확장 영역</span>
+                    <!-- ::after-->
+                </button>
+                <button id="header-naverpay">
+                    <!-- ::before-->
+                    <div></div>
+                    <span class="blind">네이버 페이</span>
+                    <!-- ::after-->
+                </button>
+                <button id="header-notice">
+                    <!-- ::before-->
+                    <div></div>
+                    <span class="blind">알림</span>
+                    <!-- ::after-->
+                </button>
+
+                <button id="header-navertoc">
+                    <!-- ::before-->
+                    <div></div>
+                    <span class="blind">네이버 톡</span>
+                    <!-- ::after-->
+                </button>
+
+                <button id="header-navershop">
+                    <!-- ::before-->
+                    <div></div>
+                    <span class="blind">네이버 장바구니</span>
+                    <!-- ::after-->
+                </button>
+            </div>
+            <style>
+                #search > form{
+                    display: inline-flex;
+                    width: 708px;
+                    height: 60px;
+                    border: 1px solid #03c75a;
+                    border-radius: 33px;
+                    text-align: left;
+                }
+                #search > form:hover{
+                    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+                }
+
+                #search-svg{
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 68px;
+                    margin-right: 12px;
+                    height: 60px;
+                    padding-left: 10px;
+                    position: relative;
+                }
+                #search-svg::after{
+                    display: none;
+                }
+                #search > form:focus-within #search-svg::after{
+                    
+                    content: '';
+                    width: 1px;
+                    height: 20px;
+                    background-color: #e4e4e4;
+                    position: absolute;
+                    display: inline-block;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+
+                }
+                
+                #search-svg svg{
+                    width: 24px;
+                    height: 24px;
+                }
+            
+                #search-input{
+                    width: 480px;
+                    padding: 17px 0;
+                    font-size: 1rem;
+                    line-height: 24px;
+                    font-weight: bold;
+                    border: none;
+                    outline: none;
+                }
+                #search > form > input {
+                    width: 480px;
+                    height: 100%;
+                    padding: 17px 0;
+                    border: none;
+                    outline: none;
+                }
+                #search-input::placeholder{
+                    color: white;
+                }
+                #search-input:focus::placeholder{
+                    color: #e4e4e4;
+                }
+                #search-right{
+                    flex: 1;
+                    display: flex;
+                    align-items: stretch;
+                    justify-content: flex-end;
+                }
+                #search > form a{
+                    width: 68;
+                    height: 100%;
+                    padding: 17px 16px 17px 30px;
+                    margin-right: 12px;
+                }
+                #search > form svg{
+                    width: 24px;
+                    height: 24px;
+                    fill: #03c75a;
+                }
+                #search-keyboard, #search-recent, #search-button{
+                    background: transparent;
+                    border: none;
+                    cursor: pointer;
+                }
+            
+                #search-keyboard::before{
+                    content: "";
+                    display: block;
+                    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.04eb92b7.png);
+                    background-size: 463px 442px;
+                    background-position: -148px -301px;
+                    background-repeat: no-repeat;
+                    width: 24px;
+                    height: 14px;
+                }
+                #search-keyboard:hover::before{
+                    filter: brightness(0.7);
+                }
+                #search-recent::before{
+                    content: "";
+                    display: block;
+                    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.04eb92b7.png);
+                    background-size: 463px 442px;
+                    background-position: -453px -422px;
+                    background-repeat: no-repeat;
+                    width: 10px;
+                    height: 6px;
+                }
+                #search-button{
+                    padding: 17px 27px 16px 10px;
+                }
+                #search-button::before{
+                    content: "";
+                    display: block;
+                    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.04eb92b7.png);
+                    background-size: 463px 442px;
+                    background-position: -405px -105px;
+                    background-repeat: no-repeat;
+                    width: 25px;
+                    height: 25px;
+                }
+            </style>
+            <div id="search">
+                <form action="">
+                    <a href="https://www.naver.com/ " id="search-svg">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.273 12.845 7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727v12.845z"></path></svg>
+                    </a>
+                    <label for="search-input" class="blind">검색어 입력</label>
+                    <input id="search-input" type="text" placeholder="검색어를 입력하세요" />
+                    <div id="search-right">
+                        <button href="#" id="search-keyboard">
+                            <span class="blind">입력도구</span>
+                        </button>
+                        <button href="#" id="search-recent">
+                            <span class="blind">자동완성/최근검색어펼치기</span>
+                        </button>
+                        <button id="search-button">
+                            <div><span class="blind">검색</span></div>
+                        </button>
+                    </div>
+                    
+                </form>
+            </div>
+            <style>
+                #nav {
+                    margin-top: 12px;
+                }
+                #nav > ul{
+                    display: flex;
+                    list-style-type: none;
+                    justify-content: center;
+                    font-size: 1.4rem;
+                    line-height: 20px;
+                }
+                #nav a {
+                    text-decoration: none;
+                    text-align: center;
+                }
+                #nav a div{
+                    margin: 0 auto;
+                    position: relative;
+                    text-align: center;
+                    display: inline-flex;
+                }
+                #nav a div::after{
+                    position: relative;
+                    z-index: 1;
+                    content: '';
+                    margin: 2px;
+                    display: inline-block;
+                    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.04eb92b7.png);
+                    background-size: 463px 442px;
+                    background-repeat: no-repeat;
+                    width: 40px;
+                    height: 40px;
+                }
+    
+                #nav a:visited{
+                    color: black;
+                }
+                #nav li{
+                    width: 64px;
+                    margin-left: -3px;
+                    display: flex;
+                    justify-content: center;
+                }
+                #nav li a div::before{
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: -1px;
+                    left: -3px;
+                    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.04eb92b7.png);
+                    background-size: 463px 442px;
+                    background-position: -153px -142px;
+                    background-repeat: no-repeat;
+                    width: 50px;
+                    height: 50px;
+                }
+                #nav li:nth-of-type(1) a div::after{
+                    margin-left: 0;
+                    background-position: -205px -219px;
+                }
+                #nav li:nth-of-type(2) a div::after{
+                    background-position: -41px -219px;
+                    
+                }
+                #nav li:nth-of-type(3) a div::after{
+                    background-position: 0px -219px;
+                }
+                #nav li:nth-of-type(4) a div::after{
+                    background-position: -41px -260px;
+                }
+                #nav li:nth-of-type(5) a div::after{
+                    background-position: -270px -205px;
+                }
+                #nav li:nth-of-type(6) a div::after{
+                    background-position: -123px -260px;
+                }
+                #nav li:nth-of-type(7) a div::after{
+                    background-position: 0px -260px; 
+                }
+                #nav li:nth-of-type(8) a div::after{
+                    background-position: -270px 0px;
+                }
+                #nav li:nth-of-type(9) a div::after{
+                    background-position: -164px -260px;
+                }
+                #nav li:nth-of-type(10) a div::after{
+                    background-position: -338px -192px;
+                }
+                #nav li:nth-of-type(11) a div::after{
+                    background-position: -270px -164px;
+                }
+                #nav li a span {
+                    display: inline-block;
+                    margin-top: 7px;
+                }
+            </style>
+            <nav id="nav">
+                <ul>
+                    <li>
+                        <a href="">
+                            <div>
+
+                            </div>
+                            <span>메일</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div>
+
+                            </div>
+                            <span>카페</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div>
+
+                            </div>
+                            <span>블로그</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div>
+
+                            </div>
+                            <span>스토어</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div>
+
+                            </div>
+                            <span>뉴스</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div>
+
+                            </div>
+                            <span>증권</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div>
+
+                            </div>
+                            <span>부동산</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div>
+
+                            </div>
+                            <span>지도</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div>
+
+                            </div>
+                            <span>웹툰</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div>
+
+                            </div>
+                            <span>치지직</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div>
+
+                            </div>
+                            <span class="blind">더보기</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <style>
+                #main{
+                    margin-top: 52px;
+                    display: flex;
+
+                }
+                #main-left{
+                    width: 830px;
+                    margin-right: 30px;
+                }
+                #main-right{
+                    width: 420px;
+                }
+                #main-left-ad, #main-right-ad{
+                    background-color: gray;
+                }
+                aside[id$=ad]{
+                    border-radius: 8px;
+                    margin-bottom: 16px;
+                }
+                #main-left-ad{
+                    height: 130px;
+                }
+                section[id^=main]{
+                    box-shadow: 0 0 0 1px #e3e5e8, 0 1px 2px 0 rgba(0,0,0,.04);
+                    border-radius: 8px;
+                    margin-bottom: 16px;
+                }
+
+                #main-shopping{
+                    height: 426px;
+
+                }
+                #main-login{
+                    height: 164px;
+                    padding: 21px 20px 18px;
+                    font-size: 1.4rem;
+                    display: flex;
+                    flex-flow: column;
+                }
+                #main-login > div:first-of-type{
+                    line-height: 20px;
+                }
+                #main-login-button{
+                    margin-top: 13px;
+                    padding: 17px;
+                    border: 1px solid rgba(0,0,0,.06);
+                    height: 56px;
+                    border-radius: 4px;
+                    background-color: #03c75a;
+                    color: white;
+                    text-decoration: none;
+                    margin-bottom: 16px;
+                }
+                #main-login-button i{
+                    vertical-align: -1px;
+                    background-image: url(./sp_main.04eb92b7.png);
+                    background-size: 422px 405px;
+                    background-position: 7px -275px;
+                    background-repeat: no-repeat;
+                    width: 72px;
+                    height: 14px;
+                    display: inline-block;
+                    margin: 3px 8px 0 0;
+                }
+                #main-login > div:last-of-type{
+                    font-size: 1.3rem;
+                    display: flex;
+                    justify-content: center;
+                }
+                #main-login > div:last-of-type a{
+                    text-decoration: none;
+                    color: black;
+                    letter-spacing: -0.4px;
+                }
+                #main-login > div:last-of-type a:first-of-type,#main-login > div:last-of-type a:last-of-type{
+                    position: relative;
+                    top: 6px;
+                }
+                #main-login > div:last-of-type a:hover{
+                    text-decoration: underline;
+                }
+                #main-login > div:last-of-type > a:nth-of-type(2)::before, #main-login > div:last-of-type > a:nth-of-type(2)::after{
+                    content: '';
+                    display: inline-block;
+                    width: 1px;
+                    height: 12px;
+                    background-color: #d3d5d7;
+                    margin: 4px 12px 0;
+                }
+                #main-right-ad{
+                    height: 240px;
+                }
+                .main-weather-and-stock{
+                    padding: 0 18px ;
+                }
+                .main-weather-and-stock > header{
+                    height: 52px;
+                    padding: 6px 0;
+                }
+                .main-weather-and-stock > div{
+                    border-top: 1px solid grey;
+                }
+                #main-weather{
+                    height: 236px;
+            
+                }
+                #main-stock{
+                    height: 236px;
+                }
+                #main-newstand{
+                    height: 426px;
+                    display: flex;
+                    flex-flow: column;
+                }
+                #main-newstand-top{
+                    flex: 1;
+                    padding: 18px 20px;
+                }
+                #main-newstand a.bold{
+                    font-weight: bold;
+                    color: black;
+
+                }
+                #main-newstand-header{
+                    font-size: 1.6rem;
+                    color: rgba(8,8,8,.5);
+                    text-align: left;
+                    
+                }
+                #main-newstand-gray{
+                    display: flex; 
+                    justify-content: flex-start;
+                }
+                #main-newstand a{
+                    text-decoration: none;
+                }
+                #main-newstand a:visited{
+                    color: inherit;
+                }
+                #main-newstand a:hover{
+                    text-decoration: underline;
+                }
+                #main-newstand footer{
+                    border-top: 1px solid black;
+                    padding: 10px 0 11px;
+                }
+            </style>
+            <main id="main">
+                <div id="main-left">
+                    <aside id="main-left-ad"></aside>
+                    <section id="main-newstand">
+                        <div id="main-newstand-top">
+
+                            <header>
+                                <a href="#" class="bold">뉴스스탠드</a>
+                                <a href="#">언론사편집</a>
+                                <a href="#">엔터</a>
+                                <a href="#">스포츠</a>
+                                <a href="#">경제</a>
+                                
+                            </header>
+                            <div id="main-newstand-gray">
+                                <div>
+                                    <a href="#">전체언론사</a>
+                                    <a href="#">연합뉴스</a>
+                                    <a href="#">제로초 지금 배고파 제로초 지금 배고파 제로초 지금 배고파 제로초 지금 배고파 제로초 지금 배고파 </a>
+                                </div>
+                                <div>
+                                    <a href="#">뉴스스탠드</a>
+                                    <a href="#">뉴스홈</a>
+                                </div>
+                            </div>
+                            <div id="main-newstand-grid">
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                            </div>
+                        </div>
+                        <footer>
+                            <button><span class="blind">이전</span></button>
+                            <div>언론사 더보기1페이지전체/4</div>
+                            <button><span class="blind">다음</span></button>
+                            <button><span class="blind">목록보기</span></button>
+                            <button><span class="blind">격자보기</span></button>
+                        </footer>
+                    </section>
+                    <section id="main-shopping"></section>
+                </div>
+                <div id="main-right">
+                    <section id="main-login">
+                        <div>네이버를 더 안전하고 편리하게 이용하세요</div>
+                        <a href="# " id="main-login-button"><i></i>로그인</a>
+                        <div>
+                            <a href="#">아이디 찾기</a>
+                            <a href="#">비밀번호 찾기</a>
+                            <a href="#">회원 가입</a>
+                        </div>
+                    </section>
+                    <aside id="main-right-ad"></aside>
+                    <section id="main-weather" class="main-weather-and-stock">
+                        <header>날씨</header>
+                        <div></div>
+                    </section>
+                    <section id="main-stock" class="main-weather-and-stock">
+                        <header>증시</header>
+                        <div></div>
+                    </section>
+
+
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
