@@ -1,0 +1,25 @@
+<h1>My Movie Reviews</h1>
+<a href="{% url 'review_create' %}">➕ 리뷰 작성</a>
+
+<div class="sort-buttons">
+  <button onclick="window.location.href='?sort=rating'">⭐ 평점순 정렬</button>
+</div>
+
+{% if request.GET.sort == 'rating' %}
+  <p> 정렬 기준: 평점 높은 순</p>
+{% else %}
+  <p> 정렬 기준: 최신 리뷰 순</p>
+{% endif %}
+
+
+<ul>
+  {% for review in reviews %}
+    <li>
+      <a href="{% url 'review_detail' review.pk %}">{{ review.title }}</a> 
+      ({{ review.release_year }} / {{ review.genre }} / ⭐ {{ review.rating }})
+    </li>
+  {% empty %}
+    <li>아직 작성된 리뷰가 없습니다.</li>
+  {% endfor %}
+</ul>
+
