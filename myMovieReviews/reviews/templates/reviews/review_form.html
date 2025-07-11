@@ -93,7 +93,7 @@
       <label>별점</label>
       <div class="stars">
         {% for i in "12345"|make_list %}
-          <span class="star" onclick="selectRating({{ i|add:"0" }})">★</span>
+           <span class="star" onclick="selectRating({{ i|add:"0" }})">★</span>
         {% endfor %}
       </div>
       <input type="hidden" name="rating" id="rating" value="{{ form.rating.value }}">

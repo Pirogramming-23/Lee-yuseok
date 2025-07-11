@@ -31,7 +31,11 @@ class Review(models.Model):
         return reverse('review_detail', args=[str(self.id)])
     
     def get_runtime_display(self):
-        hours = self.runtime // 60
-        minutes = self.runtime % 60
-        return f"{hours}시간 {minutes}분"
+        try:
+            runtime = int(self.runtime)  # 문자열이면 여기서 숫자로 변환
+            hours = runtime // 60
+            minutes = runtime % 60
+            return f"{hours}시간 {minutes}분"
+        except (ValueError, TypeError):
+            return "상영시간 정보 오류"
 
