@@ -28,6 +28,8 @@ class ReviewDetailView(DetailView):
 class ReviewCreateView(CreateView):
     model = Review
     fields = '__all__'
+
+    
     template_name = 'reviews/review_form.html'
     success_url = reverse_lazy('review_list')
 
